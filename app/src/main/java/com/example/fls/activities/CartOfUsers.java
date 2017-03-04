@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
 import com.example.fls.R;
 import com.example.fls.adapters.CustomCart;
@@ -20,6 +21,7 @@ public class CartOfUsers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Giỏ Hàng");
         setContentView(R.layout.fls_006);
         recycleGiohang = (RecyclerView) findViewById(R.id.recycle_giohang);
@@ -37,5 +39,14 @@ public class CartOfUsers extends AppCompatActivity {
         recycleGiohang.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
