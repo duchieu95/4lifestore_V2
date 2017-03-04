@@ -11,13 +11,6 @@
         app:actionViewClass="android.support.v7.widget.SearchView"/>
     <item
         android:title="mic_search"
-        android:id="@+id/micro"
-        android:icon="@drawable/icon_micro"
-        app:showAsAction="always"
-        android:orderInCategory="100"
-        />
-    <item
-        android:title="mic_search"
         android:id="@+id/cart"
         android:icon="@drawable/icon_cart"
         app:showAsAction="always"

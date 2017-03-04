@@ -116,8 +116,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         if (id == R.id.search) {
             return true;
         }
-        if (id == R.id.micro) {
-        }
         if (id == R.id.cart) {
             Intent intent = new Intent(getApplication(), CartOfUsers.class);
             startActivity(intent);
