@@ -1,6 +1,7 @@
 package com.example.fls.activities;
 
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -106,5 +107,22 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.search) {
+            return true;
+        }
+        if (id == R.id.micro) {
+        }
+        if (id == R.id.cart) {
+            Intent intent = new Intent(getApplication(), CartOfUsers.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
