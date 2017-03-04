@@ -19,16 +19,16 @@ import com.android.volley.toolbox.ImageLoader;
 public class LoadImage {
     public static LoadImage customImageLoader;
     public static Context context;
-    public   RequestQueue requestQueue;
-    public static  ImageLoader imageLoader;
+    public RequestQueue requestQueue;
+    public static ImageLoader imageLoader;
 
 
-    public LoadImage(Context context){
+    public LoadImage(Context context) {
         this.context = context;
         this.requestQueue = getRequestQueue();
 
         imageLoader = new ImageLoader(requestQueue, new ImageLoader.ImageCache() {
-            private final LruCache<String,Bitmap> cache = new LruCache<String,Bitmap>(20);
+            private final LruCache<String, Bitmap> cache = new LruCache<String, Bitmap>(20);
 
 
             @Override
@@ -38,28 +38,29 @@ public class LoadImage {
 
             @Override
             public void putBitmap(String url, Bitmap bitmap) {
-                cache.put(url,bitmap);
+                cache.put(url, bitmap);
             }
         });
     }
 
-    public static synchronized LoadImage getInstance(Context context){
-        if(customImageLoader == null){
+    public static synchronized LoadImage getInstance(Context context) {
+        if (customImageLoader == null) {
             customImageLoader = new LoadImage(context);
         }
         return customImageLoader;
     }
 
-    public RequestQueue getRequestQueue(){
-        if(requestQueue == null){
-            Cache cahe = new DiskBasedCache(context.getCacheDir(),10 * 1024 * 1024);
+    public RequestQueue getRequestQueue() {
+        if (requestQueue == null) {
+            Cache cahe = new DiskBasedCache(context.getCacheDir(), 10 * 1024 * 1024);
             Network network = new BasicNetwork(new HurlStack());
-            requestQueue = new RequestQueue(cahe,network);
+            requestQueue = new RequestQueue(cahe, network);
             requestQueue.start();
         }
         return requestQueue;
     }
-    public ImageLoader getImageLoader(){
+
+    public ImageLoader getImageLoader() {
         return imageLoader;
     }
 }
