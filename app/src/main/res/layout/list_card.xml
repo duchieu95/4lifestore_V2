@@ -15,7 +15,7 @@
         android:background="?android:selectableItemBackground"
         android:orientation="vertical">
 
-        <ImageView
+        <com.android.volley.toolbox.NetworkImageView
             android:padding="5dp"
             android:id="@+id/itemImage"
             android:layout_width="100dp"

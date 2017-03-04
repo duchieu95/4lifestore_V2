@@ -17,10 +17,11 @@ import com.android.volley.toolbox.ImageLoader;
  */
 
 public class LoadImage {
-    public static LoadImage loadImage;
+    public static LoadImage customImageLoader;
     public static Context context;
-    public RequestQueue requestQueue;
-    public static ImageLoader imageLoader;
+    public   RequestQueue requestQueue;
+    public static  ImageLoader imageLoader;
+
 
     public LoadImage(Context context){
         this.context = context;
@@ -41,12 +42,14 @@ public class LoadImage {
             }
         });
     }
+
     public static synchronized LoadImage getInstance(Context context){
-        if(loadImage == null){
-            loadImage = new LoadImage(context);
+        if(customImageLoader == null){
+            customImageLoader = new LoadImage(context);
         }
-        return loadImage;
+        return customImageLoader;
     }
+
     public RequestQueue getRequestQueue(){
         if(requestQueue == null){
             Cache cahe = new DiskBasedCache(context.getCacheDir(),10 * 1024 * 1024);
@@ -56,7 +59,7 @@ public class LoadImage {
         }
         return requestQueue;
     }
-    public LoadImage getImageLoader(){
-        return loadImage;
+    public ImageLoader getImageLoader(){
+        return imageLoader;
     }
 }

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.fls.R;
+import com.example.fls.fragments.AccountManagement;
 import com.example.fls.fragments.HomePage;
 import com.example.fls.fragments.ProductCategory;
 
@@ -72,7 +73,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 Intent intent = new Intent(getApplication(), UserManager_Activity.class);
                 startActivity(intent);
             }*/
-
+            FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+            xfragmentTransaction.replace(R.id.content_main,new AccountManagement()).commit();
+            setTitle("Tài Khoản Của Tôi");
         } else if (id == R.id.nav_cate) {
            FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
             xfragmentTransaction.replace(R.id.content_main,new ProductCategory()).commit();
