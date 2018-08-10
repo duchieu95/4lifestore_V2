@@ -1,3 +1,1 @@
-<p>More and more jobs are vanishing, and they aren’t going to come back.</p>
 
-<p>But it’s a weird sort of vanishing. Until the late ’70s, our increasing worker productivity meant more pay per worker, and a drop in prices of goods. At that point, we started to need fewer workers to make all the stuff anyone would want, and that meant that wages dropped, too. Some of this briefly got hidden by “offshoring” — it was cheaper to move manufacturing to China, then to Bangladesh, and so on — but now those countries are starting to see automation take jobs away, too. The cost of production is dropping to zero.</p>
